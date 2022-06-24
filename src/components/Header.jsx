@@ -1,4 +1,8 @@
 import "./styles/Header.css"
+import InputGroup from 'react-bootstrap/InputGroup';
+import Form from 'react-bootstrap/Form';
+import Navbar from 'react-bootstrap/Navbar';
+import Container from 'react-bootstrap/Container';
 
 const Header = () => {
 
@@ -6,19 +10,35 @@ const Header = () => {
 
     return (
         <>
-            <div className="nav">
-                <h1>Taller</h1>
-            </div>
-            <div className="banner_header">
-                <div className="title">
-                    <img src={image_link} alt="image" />
-                    <h3>Taller#1</h3>
-                </div>
-                <div className="inputs_header">
-                    <input placeholder="Saldo inicial"/>
-                    <input placeholder="Saldo Final"/>
-                </div>
-            </div>
+            <Navbar>
+                <Container>
+                    <Navbar.Brand >
+                        <img src={image_link} alt="image" />
+                    </Navbar.Brand>
+                    <Navbar.Brand href="#home">Taller#1</Navbar.Brand>
+                    <Navbar.Toggle />
+                    <Navbar.Collapse className="justify-content-end">
+                        <Navbar.Text className="input_group">
+                            <InputGroup className="mb-3">
+                                <InputGroup.Text id="basic-addon1">$</InputGroup.Text>
+                                <Form.Control
+                                    placeholder="Saldo Inicial"
+                                    aria-label="Username"
+                                    aria-describedby="basic-addon1"
+                                />
+                            </InputGroup>
+                            <InputGroup className="mb-3">
+                                <InputGroup.Text id="basic-addon1">$</InputGroup.Text>
+                                <Form.Control
+                                    placeholder="Saldo Final"
+                                    aria-label="Username"
+                                    aria-describedby="basic-addon1"
+                                />
+                            </InputGroup>
+                        </Navbar.Text>
+                    </Navbar.Collapse>
+                </Container>
+            </Navbar>
         </>
     );
 };
